@@ -210,6 +210,10 @@ namespace _4_Music_playeer_Framework
             }
         }
 
+        private void guna2TrackBar2_Scroll(object sender, ScrollEventArgs e)
+        {
+            audioFile.Volume = guna2TrackBar2.Value;
+        }
     }
 }
     
