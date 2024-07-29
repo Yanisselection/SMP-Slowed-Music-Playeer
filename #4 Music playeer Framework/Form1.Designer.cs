@@ -68,9 +68,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.guna2DataGridView2 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.Автор = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Песня = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Продолжительность = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnSideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -535,6 +536,7 @@
             this.guna2DataGridView2.ColumnHeadersHeight = 17;
             this.guna2DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.guna2DataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Автор,
             this.Песня,
             this.Продолжительность});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -578,18 +580,6 @@
             this.guna2DataGridView2.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.guna2DataGridView2.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView2_CellContentDoubleClick);
             // 
-            // Песня
-            // 
-            this.Песня.HeaderText = "Песня";
-            this.Песня.Name = "Песня";
-            this.Песня.ReadOnly = true;
-            // 
-            // Продолжительность
-            // 
-            this.Продолжительность.HeaderText = "Продолжительность";
-            this.Продолжительность.Name = "Продолжительность";
-            this.Продолжительность.ReadOnly = true;
-            // 
             // guna2TextBox1
             // 
             this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -609,6 +599,24 @@
             this.guna2TextBox1.Size = new System.Drawing.Size(634, 21);
             this.guna2TextBox1.TabIndex = 1;
             this.guna2TextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.guna2TextBox1_KeyDown);
+            // 
+            // Автор
+            // 
+            this.Автор.HeaderText = "Автор";
+            this.Автор.Name = "Автор";
+            this.Автор.ReadOnly = true;
+            // 
+            // Песня
+            // 
+            this.Песня.HeaderText = "Песня";
+            this.Песня.Name = "Песня";
+            this.Песня.ReadOnly = true;
+            // 
+            // Продолжительность
+            // 
+            this.Продолжительность.HeaderText = "Продолжительность";
+            this.Продолжительность.Name = "Продолжительность";
+            this.Продолжительность.ReadOnly = true;
             // 
             // Form1
             // 
@@ -677,11 +685,12 @@
         private System.Windows.Forms.TabPage tabPage2;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Песня;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Продолжительность;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Автор;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Песня;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Продолжительность;
     }
 }
 

@@ -55,7 +55,7 @@ namespace _4_Music_playeer_Framework
         private void Form1_Load(object sender, EventArgs e)
         {
             guna2TrackBar1.Location = new Point(x, y);
-            string defaultPath = @"C:\FAST MONTAGE\my youtube\Footage\sound\";
+            string defaultPath = @"C:\FAST MONTAGE\my youtube\Footage\sound\Музыкадля блога";
             string path = string.IsNullOrEmpty(guna2TextBox1.Text) ? defaultPath : guna2TextBox1.Text;
             filesInDirectory(path);
             guna2TextBox1.Text = path;
@@ -126,8 +126,9 @@ namespace _4_Music_playeer_Framework
                 {
                     TagLib.File tagFile = TagLib.File.Create(track);
                     string fileName = Path.GetFileName(track);
+                    string trackname = track;
                     string duration = tagFile.Properties.Duration.ToString("hh\\:mm\\:ss");
-                    guna2DataGridView2.Rows.Add(fileName, duration);
+                    guna2DataGridView2.Rows.Add(fileName, trackname, duration);
 
                 }
             }
@@ -175,7 +176,6 @@ namespace _4_Music_playeer_Framework
         {
             outputDevice?.Stop();
             outputDevice?.Dispose();
-
             guna2TrackBar1.Value = 0;
             
 
