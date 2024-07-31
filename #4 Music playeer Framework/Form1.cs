@@ -11,9 +11,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TagLib;
 using Bunifu.UI.WinForms.Helpers.Transitions;
-using NAudio.Wave;
 using TagLib.Mpeg;
+using NAudio.Wave;
 using NAudio.Utils;
+using System.Media;
+
 
 
 
@@ -128,7 +130,7 @@ namespace _4_Music_playeer_Framework
                     string fileName = Path.GetFileName(track);
                     string trackname = track;
                     string duration = tagFile.Properties.Duration.ToString("hh\\:mm\\:ss");
-                    guna2DataGridView2.Rows.Add(fileName, trackname, duration);
+                    guna2DataGridView2.Rows.Add(fileName,  duration);
 
                 }
             }
@@ -155,13 +157,16 @@ namespace _4_Music_playeer_Framework
             var currentPosition = outputDevice.GetPositionTimeSpan();
         }
 
-
+        public string chooseTrack;
         private void guna2DataGridView2_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var chooseTrack = guna2DataGridView2[0, e.RowIndex].Value.ToString();
+            chooseTrack = guna2DataGridView2[0, e.RowIndex].Value.ToString();
             string filePath = Path.Combine(guna2TextBox1.Text, chooseTrack);
             try
             {
+                outputDevice?.Stop();
+                outputDevice?.Dispose();
+                guna2TrackBar1.Value = 0;
                 playMusic(filePath);
             }
             catch (Exception ex)
@@ -171,19 +176,13 @@ namespace _4_Music_playeer_Framework
 
         }
 
-
+        private System.Windows.Forms.Timer timer;
         private void playMusic(string trackPath)
         {
-            outputDevice?.Stop();
-            outputDevice?.Dispose();
-            guna2TrackBar1.Value = 0;
-            
 
-            // Укажите путь к вашему аудиофайлу
-            string filePath = trackPath;
 
             // Создаем AudioFileReader для чтения аудио файла
-            audioFile = new AudioFileReader(filePath);
+            audioFile = new AudioFileReader(trackPath);
 
             // Создаем WaveOutEvent для воспроизведения аудио
             outputDevice = new WaveOutEvent();
@@ -191,8 +190,38 @@ namespace _4_Music_playeer_Framework
             // Инициализируем WaveOutEvent с AudioFileReader
             outputDevice.Init(audioFile);
 
+            guna2TrackBar1.Maximum = (int)audioFile.TotalTime.TotalSeconds;
+            timer = new System.Windows.Forms.Timer();
+            timer.Interval = 100;
+            timer.Tick += Slider_Tick;
+
+
             // Начинаем воспроизведение
             outputDevice.Play();
+            timer.Start();
+
+        }
+
+
+        private void Slider_Tick(object sender, EventArgs e)
+        {
+            if (audioFile != null && outputDevice != null && outputDevice.PlaybackState == PlaybackState.Playing)
+            {
+                // Обновляем значение трекбара в зависимости от текущей позиции воспроизведения
+                guna2TrackBar1.Value = (int)audioFile.CurrentTime.TotalSeconds;
+                label6.Text = audioFile.CurrentTime.ToString(@"mm\:ss");
+                label3.Text = Path.GetFileNameWithoutExtension(chooseTrack);
+
+
+            }
+        }
+
+
+        private void OnPlaybackStopped(object sender, StoppedEventArgs e)
+        {
+            // Сбрасываем прогресс бар и останавливаем таймер, когда воспроизведение завершено
+            guna2TrackBar1.Value = 0;
+            timer.Stop();
         }
 
         void stopMusic()
@@ -201,7 +230,6 @@ namespace _4_Music_playeer_Framework
             {
                 // Останавливаем воспроизведение
                 outputDevice.Stop();
-                outputDevice.Stop();
 
                 // Освобождаем ресурсы
                 outputDevice.Dispose();
@@ -209,11 +237,46 @@ namespace _4_Music_playeer_Framework
 
             }
         }
+        void pauseMusic()
+        {
+            if (outputDevice != null && outputDevice.PlaybackState == PlaybackState.Playing)
+            {
+                // Останавливаем воспроизведение
+               var pausedPosition = outputDevice.GetPositionTimeSpan();
+               outputDevice.Pause();
+
+
+            }
+        }
+
+        void resumeMusic()
+        {
+            if (outputDevice != null && outputDevice.PlaybackState == PlaybackState.Paused)
+            {
+                // Устанавливаем позицию воспроизведения на сохраненную позицию
+                
+                // Продолжаем воспроизведение
+                outputDevice.Play();
+            }
+        }
 
         private void guna2TrackBar2_Scroll(object sender, ScrollEventArgs e)
         {
             audioFile.Volume = guna2TrackBar2.Value;
         }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            pauseMusic();
+        }
+
+        private void guna2ImageButton2_Click(object sender, EventArgs e)
+        {
+            resumeMusic();
+        }
+
+
+        
     }
 }
     
