@@ -152,10 +152,22 @@ namespace _4_Music_playeer_Framework
         public AudioFileReader audioFile;
         public WaveOutEvent outputDevice;
 
+
+
+        private bool isUserScrolling = false;
         public void guna2TrackBar1_Scroll(object sender, ScrollEventArgs e)
         {
-            var currentPosition = outputDevice.GetPositionTimeSpan();
+            if (e.Type == ScrollEventType.ThumbTrack || e.Type == ScrollEventType.ThumbPosition)
+            {
+                isUserScrolling = true;
+                if (audioFile != null && outputDevice != null && outputDevice.PlaybackState == PlaybackState.Playing)
+                {
+                    audioFile.CurrentTime = TimeSpan.FromSeconds(guna2TrackBar1.Value);
+                }
+                isUserScrolling = false;
+            }
         }
+
 
         public string chooseTrack;
         private void guna2DataGridView2_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -207,12 +219,13 @@ namespace _4_Music_playeer_Framework
         {
             if (audioFile != null && outputDevice != null && outputDevice.PlaybackState == PlaybackState.Playing)
             {
+                if (!isUserScrolling)
+                {
+                    guna2TrackBar1.Value = (int)audioFile.CurrentTime.TotalSeconds;
+                }
                 // Обновляем значение трекбара в зависимости от текущей позиции воспроизведения
-                guna2TrackBar1.Value = (int)audioFile.CurrentTime.TotalSeconds;
                 label6.Text = audioFile.CurrentTime.ToString(@"mm\:ss");
                 label3.Text = Path.GetFileNameWithoutExtension(chooseTrack);
-
-
             }
         }
 
@@ -262,7 +275,11 @@ namespace _4_Music_playeer_Framework
 
         private void guna2TrackBar2_Scroll(object sender, ScrollEventArgs e)
         {
-            audioFile.Volume = guna2TrackBar2.Value;
+            if (audioFile != null)
+            {
+                float volume = (float)guna2TrackBar2.Value / (float)guna2TrackBar2.Maximum; 
+                audioFile.Volume = volume;
+            }
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
