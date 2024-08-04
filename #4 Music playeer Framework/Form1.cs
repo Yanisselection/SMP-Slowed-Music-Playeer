@@ -173,7 +173,7 @@ namespace _4_Music_playeer_Framework
             }
             catch (Exception ex)
             {
-                MessageBox.Show($@"Ошибка воспроезвидения файла - {guna2TextBox1.Text}\{chooseTrack}\n{ex}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); // Показывает сообщение об ошибке
+                MessageBox.Show($@"Ошибка воспроезвидения файла - {chooseTrack}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); // Показывает сообщение об ошибке
             }
         }
         string PathPreviousTrack()
@@ -184,7 +184,7 @@ namespace _4_Music_playeer_Framework
 
                 int previousIndexCurrent = guna2DataGridView2.CurrentCell.RowIndex - 1;
                 string chooseNextTrack = guna2DataGridView2[0, previousIndexCurrent].Value.ToString(); // Получает выбранный трек
-                string chooseNextTrackPath = $"{guna2TextBox1.Text}\\{previousIndexCurrent}";
+                string chooseNextTrackPath = $"{guna2TextBox1.Text}\\{chooseNextTrack}";
                 guna2DataGridView2.CurrentCell = guna2DataGridView2[0, previousIndexCurrent];
                 guna2DataGridView2.Rows[previousIndexCurrent].Selected = true;
                 guna2DataGridView2.Rows[previousIndexCurrent + 1].Selected = false;
@@ -273,6 +273,8 @@ namespace _4_Music_playeer_Framework
                 {
                     string nextPath = pathNextTrack();
                     playMusic(nextPath);
+                    audioFile.Volume = guna2TrackBar2.Value / 100.0f;
+
                     //MessageBox.Show(guna2TrackBar1.Value.ToString(), audioFile.CurrentTime.TotalSeconds.ToString());
                 }
             }
@@ -373,7 +375,6 @@ namespace _4_Music_playeer_Framework
         {
 
         }
-
         private void btnPaused_Click(object sender, EventArgs e)
         {
             pauseMusic(); // Останавливает воспроизведение
@@ -383,18 +384,20 @@ namespace _4_Music_playeer_Framework
         {
                 if (playMusicNow == true)
             {
-                stopMusic();
-                string currentNextPath = pathNextTrack();
-                playMusic(currentNextPath);
-                string result = Path.GetFileNameWithoutExtension(currentNextPath);
-                audioFile.Volume = guna2TrackBar2.Value / 100.0f;
-                label3.Text = result;
-                label4.Text = "Сейчас играет";
-                playMusicNow = true;
+                try
+                {
+                    stopMusic();
+                    string currentNextPath = pathNextTrack();
+                    playMusic(currentNextPath);
+                    string result = Path.GetFileNameWithoutExtension(currentNextPath);
+                    audioFile.Volume = guna2TrackBar2.Value / 100.0f;
+                    label3.Text = result;
+                    label4.Text = "Сейчас играет";
+                    playMusicNow = true;
 
+                }
+                catch { MessageBox.Show("Файл не поддерживается"); }
             }
-
-
         }
 
         private void guna2DataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -404,8 +407,6 @@ namespace _4_Music_playeer_Framework
 
         private bool isMove = false;
         private int mouseX, mouseY;
-
-
 
         private void pnHeader_MouseDown_1(object sender, MouseEventArgs e)
         {
@@ -428,21 +429,17 @@ namespace _4_Music_playeer_Framework
                 }
             }
         }
-
         private void guna2ImageButton1_Click(object sender, EventArgs e)
         {
-
             if (playMusicNow == true)
             {
                 outputDevice.Stop();
                 outputDevice.Dispose();
                 playMusicNow = false;
                 string previousTrack = PathPreviousTrack();
-                //MessageBox.Show(previousTrack);
+                playMusicNow = true;
                 playMusic(previousTrack);
-
             }
-
         }
 
         private void pnHeader_MouseUp_1(object sender, MouseEventArgs e)
