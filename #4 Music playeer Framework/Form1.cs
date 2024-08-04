@@ -248,11 +248,11 @@ namespace _4_Music_playeer_Framework
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 100; // Интервал таймера
             timer.Tick += Slider_Tick; // Обработчик события таймера
+           
 
             // Начинаем воспроизведение
             outputDevice.Play();
             timer.Start(); // Запускает таймер
-            playMusicNow = true;
             string nameTrack = Path.GetFileNameWithoutExtension(trackPath);
             label3.Text = nameTrack;
 
@@ -269,11 +269,18 @@ namespace _4_Music_playeer_Framework
                 }
                 label6.Text = audioFile.CurrentTime.ToString(@"mm\:ss"); // Обновляет метку с текущим временем
                 
+                if ((int)audioFile.CurrentTime.TotalSeconds >= (int)audioFile.TotalTime.TotalSeconds)
+                {
+                    string nextPath = pathNextTrack();
+                    playMusic(nextPath);
+                    //MessageBox.Show(guna2TrackBar1.Value.ToString(), audioFile.CurrentTime.TotalSeconds.ToString());
+                }
             }
         }
 
         private void OnPlaybackStopped(object sender, StoppedEventArgs e)
         {
+
             //outputDevice.Stop();
             //outputDevice.Dispose();
             //playMusic(pathNextTrack());
@@ -333,6 +340,7 @@ namespace _4_Music_playeer_Framework
                 string currentNextPath = $"{guna2TextBox1.Text}\\{guna2DataGridView2.CurrentCell.Value.ToString()}";
                 label3.Text = Path.GetFileNameWithoutExtension(currentNextPath);
                 playMusic(currentNextPath);
+                playMusicNow = true;
                 label4.Text = "Сейчас играет";
             }
             else
@@ -373,15 +381,20 @@ namespace _4_Music_playeer_Framework
         
         private void guna2ImageButton3_Click(object sender, EventArgs e)
         {
-
+                if (playMusicNow == true)
+            {
                 stopMusic();
                 string currentNextPath = pathNextTrack();
-                MessageBox.Show(currentNextPath);
                 playMusic(currentNextPath);
                 string result = Path.GetFileNameWithoutExtension(currentNextPath);
+                audioFile.Volume = guna2TrackBar2.Value / 100.0f;
                 label3.Text = result;
                 label4.Text = "Сейчас играет";
-            
+                playMusicNow = true;
+
+            }
+
+
         }
 
         private void guna2DataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
