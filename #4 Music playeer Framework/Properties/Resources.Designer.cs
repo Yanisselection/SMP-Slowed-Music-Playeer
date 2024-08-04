@@ -93,6 +93,26 @@ namespace _4_Music_playeer_Framework.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap photo_2023_05_02_15_27_49 {
+            get {
+                object obj = ResourceManager.GetObject("photo_2023-05-02_15-27-49", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngwing_com__1_ {
+            get {
+                object obj = ResourceManager.GetObject("pngwing.com (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Round {
             get {
                 object obj = ResourceManager.GetObject("Round", resourceCulture);
@@ -136,6 +156,26 @@ namespace _4_Music_playeer_Framework.Properties {
         internal static System.Drawing.Bitmap Квадратная_обл__0_00_02_21_1 {
             get {
                 object obj = ResourceManager.GetObject("Квадратная обл (0-00-02-21)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Скриншот_04_08_2024_130100 {
+            get {
+                object obj = ResourceManager.GetObject("Скриншот 04-08-2024 130100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Скриншот_04_08_2024_130240 {
+            get {
+                object obj = ResourceManager.GetObject("Скриншот 04-08-2024 130240", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
