@@ -25,7 +25,7 @@ namespace _4_Music_playeer_Framework
         int x = 30; // Начальная позиция X для трекбара
         int y = 13; // Начальная позиция Y для трекбара
         int xTextBox = 225; // Начальная позиция X для текстового поля
-        int yTextBox = 572; // Начальная позиция Y для текстового поля
+        int yTextBox = 398; // Начальная позиция Y для текстового поля
 
         public Form1()
         {
@@ -65,6 +65,7 @@ namespace _4_Music_playeer_Framework
         }
 
         // Спрятать прогресс бар трека
+        int currentPos;
         async void hideLengthSide()
         {
             for (int i = 0; i < 20; i++)
@@ -73,6 +74,7 @@ namespace _4_Music_playeer_Framework
                 yTextBox += 2;
                 guna2TextBox1.Location = new Point(xTextBox, yTextBox); // Обновляет позицию текстового поля
                 guna2TrackBar1.Location = new Point(x, y); // Обновляет позицию трекбара
+                currentPos = y;
                 await Task.Delay(5); // Задержка
             }
             show_lenght = false; // Скрывает длину
@@ -81,13 +83,12 @@ namespace _4_Music_playeer_Framework
         // Показать прогресс бар трека
         async void showLengthSide()
         {
-            x = 29;
-            y = 46;
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 20; i++)
+
             {
-                y -= 3;
-                yTextBox -= 4;
+                y -= 2;
+                yTextBox -= 2;
                 guna2TextBox1.Location = new Point(xTextBox, yTextBox); // Обновляет позицию текстового поля
                 guna2TrackBar1.Location = new Point(x, y); // Обновляет позицию трекбара
                 await Task.Delay(5); // Задержка
@@ -103,7 +104,7 @@ namespace _4_Music_playeer_Framework
             }
             else
             {
-                showLengthSide(); // Показывает длину при выборе первой вкладки
+                 showLengthSide(); // Показывает длину при выборе первой вкладки
             }
         }
 
@@ -440,6 +441,11 @@ namespace _4_Music_playeer_Framework
                 playMusicNow = true;
                 playMusic(previousTrack);
             }
+        }
+
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void pnHeader_MouseUp_1(object sender, MouseEventArgs e)
