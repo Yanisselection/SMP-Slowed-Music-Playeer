@@ -49,12 +49,21 @@ namespace _4_Music_playeer_Framework
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            guna2TrackBar1.Location = new Point(x, y); // Устанавливает начальную позицию трекбара
-            string defaultPath = @"C:\FAST MONTAGE\my youtube\Footage\sound\Музыкадля блога"; // Путь по умолчанию
-            string path = string.IsNullOrEmpty(guna2TextBox1.Text) ? defaultPath : guna2TextBox1.Text; // Выбирает путь
-            filesInDirectory(path); // Загружает файлы из директории
-            guna2TextBox1.Text = path; // Устанавливает путь в текстовое поле
-            //label3.Text = chooseTrack;
+            LoginForm loginForm = new LoginForm();
+            if (loginForm.ShowDialog() == DialogResult.OK)
+            {
+                guna2TrackBar1.Location = new Point(x, y); // Устанавливает начальную позицию трекбара
+                string defaultPath = @"C:\FAST MONTAGE\my youtube\Footage\sound\Музыкадля блога"; // Путь по умолчанию
+                string path = string.IsNullOrEmpty(guna2TextBox1.Text) ? defaultPath : guna2TextBox1.Text; // Выбирает путь
+                filesInDirectory(path); // Загружает файлы из директории
+                guna2TextBox1.Text = path; // Устанавливает путь в текстовое поле
+                                           //label3.Text = chooseTrack;
+            }
+            else
+            {
+
+            }
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
