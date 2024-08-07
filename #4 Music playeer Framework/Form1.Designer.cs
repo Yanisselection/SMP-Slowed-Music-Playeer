@@ -30,10 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnSideBar = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
@@ -66,7 +67,6 @@
             this.Автор = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Продолжительность = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.pnSideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -93,8 +93,15 @@
             this.pnSideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnSideBar.Location = new System.Drawing.Point(0, 0);
             this.pnSideBar.Name = "pnSideBar";
-            this.pnSideBar.Size = new System.Drawing.Size(215, 479);
+            this.pnSideBar.Size = new System.Drawing.Size(215, 486);
             this.pnSideBar.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(215, 84);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(615, 481);
+            this.panel1.TabIndex = 2;
             // 
             // guna2Button5
             // 
@@ -209,7 +216,7 @@
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel2.Controls.Add(this.guna2TrackBar1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(215, 426);
+            this.panel2.Location = new System.Drawing.Point(215, 433);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(660, 53);
             this.panel2.TabIndex = 2;
@@ -285,16 +292,18 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(212, 98);
+            this.label3.Location = new System.Drawing.Point(200, 105);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 20);
+            this.label3.Size = new System.Drawing.Size(302, 20);
             this.label3.TabIndex = 1;
+            this.label3.Text = "Нажмите \"Играть\", чтобы воспроизвести";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
             this.guna2Panel1.Controls.Add(this.imgEq);
-            this.guna2Panel1.Location = new System.Drawing.Point(30, 77);
+            this.guna2Panel1.Location = new System.Drawing.Point(31, 77);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(144, 149);
             this.guna2Panel1.TabIndex = 2;
@@ -303,9 +312,9 @@
             // 
             this.imgEq.Image = global::_4_Music_playeer_Framework.Properties.Resources.Скриншот_04_08_2024_130240;
             this.imgEq.ImageRotate = 0F;
-            this.imgEq.Location = new System.Drawing.Point(-25, -10);
+            this.imgEq.Location = new System.Drawing.Point(-24, -1);
             this.imgEq.Name = "imgEq";
-            this.imgEq.Size = new System.Drawing.Size(187, 169);
+            this.imgEq.Size = new System.Drawing.Size(187, 156);
             this.imgEq.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgEq.TabIndex = 1;
             this.imgEq.TabStop = false;
@@ -315,7 +324,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label4.Location = new System.Drawing.Point(199, 77);
+            this.label4.Location = new System.Drawing.Point(199, 76);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(130, 20);
             this.label4.TabIndex = 1;
@@ -331,7 +340,7 @@
             this.tabControl1.Location = new System.Drawing.Point(221, 47);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(642, 373);
+            this.tabControl1.Size = new System.Drawing.Size(642, 380);
             this.tabControl1.TabIndex = 4;
             this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
@@ -351,7 +360,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(634, 345);
+            this.tabPage1.Size = new System.Drawing.Size(634, 352);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Музыка";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -458,7 +467,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(634, 345);
+            this.tabPage2.Size = new System.Drawing.Size(634, 317);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Выбор директории";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -469,29 +478,29 @@
             this.guna2DataGridView2.AllowUserToDeleteRows = false;
             this.guna2DataGridView2.AllowUserToOrderColumns = true;
             this.guna2DataGridView2.AllowUserToResizeRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.guna2DataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.guna2DataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.guna2DataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle44;
             this.guna2DataGridView2.ColumnHeadersHeight = 17;
             this.guna2DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.guna2DataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Автор,
             this.Продолжительность});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DataGridView2.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle45.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
+            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.guna2DataGridView2.DefaultCellStyle = dataGridViewCellStyle45;
             this.guna2DataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2DataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
             this.guna2DataGridView2.Location = new System.Drawing.Point(3, 3);
@@ -499,7 +508,7 @@
             this.guna2DataGridView2.ReadOnly = true;
             this.guna2DataGridView2.RowHeadersVisible = false;
             this.guna2DataGridView2.RowHeadersWidth = 45;
-            this.guna2DataGridView2.Size = new System.Drawing.Size(628, 339);
+            this.guna2DataGridView2.Size = new System.Drawing.Size(628, 311);
             this.guna2DataGridView2.TabIndex = 0;
             this.guna2DataGridView2.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt;
             this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
@@ -551,7 +560,7 @@
             this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(225, 398);
+            this.guna2TextBox1.Location = new System.Drawing.Point(221, 406);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PasswordChar = '\0';
             this.guna2TextBox1.PlaceholderText = "";
@@ -562,23 +571,16 @@
             this.guna2TextBox1.Click += new System.EventHandler(this.guna2TextBox1_Click);
             this.guna2TextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.guna2TextBox1_KeyDown);
             // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(215, 84);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(615, 481);
-            this.panel1.TabIndex = 2;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(875, 479);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(875, 486);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.guna2TextBox1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnHeader);
             this.Controls.Add(this.pnSideBar);
-            this.Controls.Add(this.guna2TextBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";

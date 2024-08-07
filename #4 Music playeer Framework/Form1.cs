@@ -54,7 +54,7 @@ namespace _4_Music_playeer_Framework
             string path = string.IsNullOrEmpty(guna2TextBox1.Text) ? defaultPath : guna2TextBox1.Text; // Выбирает путь
             filesInDirectory(path); // Загружает файлы из директории
             guna2TextBox1.Text = path; // Устанавливает путь в текстовое поле
-            label3.Text = chooseTrack;
+            //label3.Text = chooseTrack;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -68,7 +68,7 @@ namespace _4_Music_playeer_Framework
         int currentPos;
         async void hideLengthSide()
         {
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 25; i++)
             {
                 y += 2;
                 yTextBox += 2;
@@ -84,7 +84,7 @@ namespace _4_Music_playeer_Framework
         async void showLengthSide()
         {
 
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 25; i++)
 
             {
                 y -= 2;
