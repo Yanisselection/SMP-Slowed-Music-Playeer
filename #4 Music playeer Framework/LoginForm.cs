@@ -43,7 +43,6 @@ namespace _4_Music_playeer_Framework
             {
                 MessageBox.Show("Авторизция прошла успешно", "Успешно",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
                 //this.Close();
-                Application.Run(Form1());
             }
         }
     }

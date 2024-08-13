@@ -63,7 +63,6 @@ namespace _4_Music_playeer_Framework
             {
 
             }
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)
